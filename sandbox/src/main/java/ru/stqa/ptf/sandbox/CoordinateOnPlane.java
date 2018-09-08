@@ -5,11 +5,12 @@ public class CoordinateOnPlane {
     Point first = new Point(1, 1);
     System.out.println("Координаты первой точки на плоскости " + "(" + first.x + "," + first.y + ")");
 
-    Point second = new Point(1, 2);
+    Point second = new Point(1, 3);
     System.out.println("Координаты второй точки на плоскости " + "(" + second.x + "," + second.y + ")");
 
     System.out.println("Расстояние между точками " + "(" + first.x + "," + first.y + ")" + " и " + "(" + second.x + "," + second.y + ")" + " равно " + distance(first,second));
 
+    System.out.println("Расстояние между точками " + "(" + first.x + "," + first.y + ")" + " и " + "(" + second.x + "," + second.y + ")" + " равно " + first.distance(first,second));
 
   }
 
