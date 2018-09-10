@@ -10,7 +10,7 @@ public class CoordinateOnPlane {
 
     System.out.println("Расстояние между точками " + "(" + first.x + "," + first.y + ")" + " и " + "(" + second.x + "," + second.y + ")" + " равно " + distance(first,second));
 
-    System.out.println("Расстояние между точками " + "(" + first.x + "," + first.y + ")" + " и " + "(" + second.x + "," + second.y + ")" + " равно " + first.distance(first,second));
+    System.out.println("Расстояние между точками " + "(" + first.x + "," + first.y + ")" + " и " + "(" + second.x + "," + second.y + ")" + " равно " + first.distance(second));
 
   }
 
