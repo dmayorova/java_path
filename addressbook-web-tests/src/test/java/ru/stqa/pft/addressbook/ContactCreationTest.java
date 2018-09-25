@@ -14,17 +14,35 @@ public class ContactCreationTest {
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.get("http://localhost/addressbook/");
+    login();
   }
 
-  @Test
-  public void testContactCreation() throws Exception {
-    wd.get("http://localhost/addressbook/");
+  private void login() {
     wd.findElement(By.name("user")).clear();
     wd.findElement(By.name("user")).sendKeys("admin");
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys("secret");
     wd.findElement(By.xpath("//input[@value='Login']")).click();
-    wd.findElement(By.linkText("add new")).click();
+  }
+
+  @Test
+  public void testContactCreation() throws Exception {
+    initNewContact();
+    fillContactForm();
+    submitContactForm();
+    logout();
+  }
+
+  private void logout() {
+    wd.findElement(By.linkText("Logout")).click();
+  }
+
+  private void submitContactForm() {
+    wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+  }
+
+  private void fillContactForm() {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
     wd.findElement(By.name("firstname")).sendKeys("Mayorova");
@@ -48,10 +66,11 @@ public class ContactCreationTest {
     wd.findElement(By.name("bmonth")).click();
     new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText("December");
     wd.findElement(By.name("byear")).click();
-    wd.findElement(By.name("byear")).clear();
     wd.findElement(By.name("byear")).sendKeys("1990");
-    wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
-    wd.findElement(By.linkText("Logout")).click();
+  }
+
+  private void initNewContact() {
+    wd.findElement(By.linkText("add new")).click();
   }
 
   @AfterMethod(alwaysRun = true)
