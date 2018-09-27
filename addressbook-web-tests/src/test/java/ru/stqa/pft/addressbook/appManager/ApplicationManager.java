@@ -1,12 +1,7 @@
 package ru.stqa.pft.addressbook.appManager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-import ru.stqa.pft.addressbook.module.ContactData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,6 +25,7 @@ public class ApplicationManager {
   }
 
   public void stop() {
+    sessionHelper.logout();
     wd.quit();
   }
 

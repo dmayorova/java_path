@@ -30,4 +30,17 @@ public class ContactHelper extends HelperBase{
     type(By.name("byear"),contactData.getYear());
   }
 
+  public void editContact() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void submitContactModification() {
+    click(By.xpath("(//input[@name='update'])[2]"));
+  }
+
+  public void submitContactDeletion() {
+    click(By.xpath("(//input[@name='update'])[3]"));
+  }
+
+
 }

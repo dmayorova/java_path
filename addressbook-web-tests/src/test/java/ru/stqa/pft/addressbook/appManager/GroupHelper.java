@@ -10,10 +10,6 @@ public class GroupHelper extends HelperBase{
     super(wd);
   }
 
-  public void returnToStartPage() {
-    click(By.linkText("group page"));
-  }
-
   public void submitCreationGroup() {
     click(By.name("submit"));
   }
@@ -34,5 +30,13 @@ public class GroupHelper extends HelperBase{
 
   public void selectGroup() {
     click(By.name("selected[]"));
+  }
+
+  public void modificationSelectedGroup() {
+    click(By.name("edit"));
+  }
+
+  public void submitModificationGroup() {
+    click(By.name("update"));
   }
 }

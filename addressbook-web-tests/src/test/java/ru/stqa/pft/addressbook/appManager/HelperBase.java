@@ -13,13 +13,13 @@ public class HelperBase {
     this.wd = wd;
   }
 
-  protected void type(By locator, String text) {
+  public void type(By locator, String text) {
     click(locator);
     wd.findElement(locator).clear();
     wd.findElement(locator).sendKeys(text);
   }
 
-  protected void click(By button) {
+  public void click(By button) {
     wd.findElement(button).click();
   }
 
@@ -41,7 +41,7 @@ public class HelperBase {
     }
   }
 
-  protected void chooseFromList(By locator, String dataDay) {
+  public void chooseFromList(By locator, String dataDay) {
     click(locator);
     new Select(wd.findElement(locator)).selectByVisibleText(dataDay);
   }
