@@ -25,6 +25,9 @@ public class ContactHelper extends HelperBase{
     type(By.name("address"),contactData.getAddress());
     type(By.name("mobile"),contactData.getPhone());
     type(By.name("email"),contactData.getEmail());
+    if(isElementPresent(By.name("new_group"))){
+      chooseFromList(By.name("new_group"), contactData.getGroup());
+    }
     chooseFromList(By.name("bday"), contactData.getDay());
     chooseFromList(By.name("bmonth"), contactData.getMonth());
     type(By.name("byear"),contactData.getYear());
@@ -41,6 +44,18 @@ public class ContactHelper extends HelperBase{
   public void submitContactDeletion() {
     click(By.xpath("(//input[@name='update'])[3]"));
   }
+  public void returnToHomePage() {
+    click(By.linkText("home"));
+  }
 
+  public void creationContact(ContactData contact) {
+    initNewContact();
+    fillContactForm(contact);
+    submitContactForm();
+    returnToHomePage();
+  }
 
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//img[@alt='Edit']"));
+  }
 }
