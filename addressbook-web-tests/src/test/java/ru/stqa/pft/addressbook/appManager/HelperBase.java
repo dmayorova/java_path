@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class HelperBase {
-  protected WebDriver wd;
+  WebDriver wd;
 
   public HelperBase(WebDriver wd) {
     this.wd = wd;
