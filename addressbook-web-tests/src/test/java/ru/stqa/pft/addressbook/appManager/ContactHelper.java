@@ -33,8 +33,8 @@ public class ContactHelper extends HelperBase{
     type(By.name("byear"),contactData.getYear());
   }
 
-  public void editContact() {
-    click(By.xpath("//img[@alt='Edit']"));
+  public void editContact(int index) {
+    wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
   }
 
   public void submitContactModification() {
