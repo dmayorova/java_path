@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.module.ContactData;
 import ru.stqa.pft.addressbook.module.GroupData;
 
+import java.util.List;
+
 public class ContactCreationTest extends TestBase{
 
   @Test
@@ -15,10 +17,10 @@ public class ContactCreationTest extends TestBase{
     } else {
       app.getNavigationHelper().gotoContactHome();
     }
-    int before = app.getGroupHelper().getCountElements();
+    List<ContactData> before = app.getContactHelper().grtContactList();
     app.getContactHelper().creationContact(new ContactData("Mayorova", "Daria", "the best company", "NN city Becetova street", "+ 7 912 111 22 44", "breaks_beats@mail.ru", "test1","8", "December", "1990"));
-    int after = app.getGroupHelper().getCountElements();
-    Assert.assertEquals(after,before +1);
+    List<ContactData> after = app.getContactHelper().grtContactList();
+    Assert.assertEquals(after.size(),before.size() + 1);
 
   }
 }

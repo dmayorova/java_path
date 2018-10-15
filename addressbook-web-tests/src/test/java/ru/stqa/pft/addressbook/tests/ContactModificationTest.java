@@ -19,11 +19,11 @@ public class ContactModificationTest extends TestBase {
       }
       app.getContactHelper().creationContact(new ContactData("Mayorova", "Daria", "the best company", "NN city Becetova street", "+ 7 912 111 22 44", "breaks_beats@mail.ru", "test1","8", "December", "1990"));
     }
-    int before = app.getGroupHelper().getCountElements();
+    int before = app.getContactHelper().getCountElements();
     app.getContactHelper().editContact(before - 1);
     app.getContactHelper().fillContactForm(new ContactData("Mayorova", "Daria", "the best company", "NN city Becetova street", "+ 7 912 111 22 44", "breaks_beats@mail.ru", null,"8", "December", "1990"));
     app.getContactHelper().submitContactModification();
-    int after = app.getGroupHelper().getCountElements();
+    int after = app.getContactHelper().getCountElements();
     Assert.assertEquals(after,before);
     app.getContactHelper().returnToHomePage();
    }
